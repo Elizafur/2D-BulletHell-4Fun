@@ -20,6 +20,8 @@ public class EnemyAttackHandler : MonoBehaviour
 
     private Vector2 DirectionShot;
 
+    public float attackAngleOffset = 0f;
+
     void Start()
     {
         if (target == null)
@@ -63,7 +65,7 @@ public class EnemyAttackHandler : MonoBehaviour
         if (cross.z > 0)
             ang = 360 - ang;
 
-        transform.RotateAround(transform.position, new Vector3(0,0,1), ang);
+        transform.RotateAround(transform.position, new Vector3(0,0,1), ang+attackAngleOffset);
 
         return dir;
     }

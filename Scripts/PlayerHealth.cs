@@ -20,10 +20,14 @@ public class PlayerHealth : MonoBehaviour
     private CharacterController2D character;
     public float deathWaitTime = 0.5f;
 
+    private PlayerAbilityHandler playerAbility;
+
     void Start()
     {
         character = GetComponent<CharacterController2D>();
         character.onTriggerEnterEvent += onTriggerEnterEvent;
+
+        playerAbility = GetComponent<PlayerAbilityHandler>();
     }
 
     public bool takeDamage(float val)
@@ -52,14 +56,14 @@ public class PlayerHealth : MonoBehaviour
     void PlayDeathEffect()
     {
         GameObject o = Instantiate(deathEffect, transform);
-        o.transform.localScale = new Vector3(2,2,2); //Increase size since it's a small FUCK
+        o.transform.position -= new Vector3(0,5f,0);
         ParticleSystem ps = o.GetComponent<ParticleSystem>();
         ps.Play();
     }
 
     void onTriggerEnterEvent( Collider2D other )
 	{
-		if (other.gameObject.tag == "EnemyBullet")
+		if (other.gameObject.tag == "EnemyBullet" && !playerAbility.Pulsing)
         {
             
             takeDamage(other.gameObject.GetComponent<BulletHandler>().Damage);

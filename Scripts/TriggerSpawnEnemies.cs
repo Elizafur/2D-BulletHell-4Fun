@@ -48,6 +48,10 @@ public class TriggerSpawnEnemies : MonoBehaviour
     {
         if (!triggered || !triggerOnlyOnce)
         {
+            print(other.tag);
+
+            if (other.tag != "PlayerTriggerCollider")
+                return;
             triggered = true;
             StartCoroutine(SpawnEnemies());
         }
