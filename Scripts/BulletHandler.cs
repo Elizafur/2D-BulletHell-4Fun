@@ -5,8 +5,10 @@ using UnityEngine;
 public class BulletHandler : MonoBehaviour
 {
     public Vector2 Direction;
-    private float Speed = 10f;
+    public float Speed = 10f;
     private Rigidbody2D rb;
+
+    public float Damage = 8f;
 
 
 

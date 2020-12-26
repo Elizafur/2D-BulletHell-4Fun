@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1917885e4d10b6b4291213e532c35fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 6.5
 --- !u!212 &5466982592030283737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -416,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57901f6e1cf4ebe4d9c7c3075aadeb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivot: {fileID: 5466982592030283718}
 --- !u!50 &5466982592238360948
 Rigidbody2D:
   serializedVersion: 4

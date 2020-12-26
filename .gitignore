@@ -1,0 +1,15 @@
+
+*.meta
+*.anim
+*.wav
+*.png
+*.mat
+*.jpg
+*.hdr
+*.cubemap
+*.txt
+*.physicsMaterial2D
+*.ttf
+*.asset
+*.shader
+*.tga

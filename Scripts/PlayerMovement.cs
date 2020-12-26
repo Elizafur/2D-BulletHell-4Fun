@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Controls PlayerControls;
     private CharacterController2D Character;
-    private float MoveSpeed = 5f;
+    public float MoveSpeed = 5f;
 
     void Awake()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class PlayerAttackHandler : MonoBehaviour
 {
@@ -25,8 +26,7 @@ public class PlayerAttackHandler : MonoBehaviour
     void Update()
     {
         float   fire = Controls.Player.Fire.ReadValue<float>();
-        Vector2 look = Controls.Player.Look.ReadValue<Vector2>();
-
+        
         
         if (fire == 1)
         {
@@ -49,7 +49,14 @@ public class PlayerAttackHandler : MonoBehaviour
         {
             if (!shooting) break;
             GameObject shot = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            shot.GetComponent<BulletHandler>().Direction = Controls.Player.Look.ReadValue<Vector2>();
+            
+            Vector2 input = Util.GenerateMousePosition(Controls);
+            
+            bool useController = Gamepad.current != null;
+            if (useController)
+                input = Controls.Player.Look.ReadValue<Vector2>().normalized;
+            
+            shot.GetComponent<BulletHandler>().Direction = input;
 
 
             yield return new WaitForSeconds(shotTime);
