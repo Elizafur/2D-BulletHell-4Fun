@@ -13,3 +13,17 @@
 *.asset
 *.shader
 *.tga
+*.mdp
+*.controller
+*.png~
+*.prefab
+*.cube
+*.unity
+*.shadergraph
+*.cginc
+*.shadersubgraph
+*.json
+*.psd
+*.obj
+*.dll
+*.fbx
